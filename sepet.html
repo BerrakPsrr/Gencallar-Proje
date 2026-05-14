@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Sepetim - Gencallar</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f8f8f8;
+}
+
+header{
+background:rgb(39,17,0);
+color:white;
+padding:20px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo a{
+color:white;
+text-decoration:none;
+font-size:32px;
+font-weight:bold;
+letter-spacing:2px;
+}
+
+.geri{
+color:white;
+text-decoration:none;
+}
+
+.baslik{
+text-align:center;
+padding:40px 20px;
+}
+
+.baslik h1{
+margin:0;
+font-size:35px;
+color:rgb(39,17,0);
+}
+
+.baslik p{
+color:gray;
+}
+
+.sepet-container{
+max-width:1100px;
+margin:auto;
+padding:20px;
+display:flex;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.sepet-urunler{
+flex:2;
+}
+
+.urun{
+background:white;
+padding:20px;
+border-radius:12px;
+margin-bottom:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+.urun h3{
+margin:0;
+color:rgb(39,17,0);
+}
+
+.urun p{
+margin:5px 0;
+color:#8b0000;
+font-weight:bold;
+font-size:18px;
+}
+
+.sil-btn{
+background:#8b0000;
+color:white;
+border:none;
+padding:10px 15px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.ozet{
+flex:1;
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+.toplam{
+font-size:26px;
+font-weight:bold;
+margin:20px 0;
+color:#8b0000;
+}
+
+.satin-al{
+width:100%;
+padding:15px;
+background:rgb(39,17,0);
+color:white;
+border:none;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+}
+
+.satin-al:hover{
+background:#8b4513;
+}
+
+.bos{
+text-align:center;
+padding:60px;
+font-size:22px;
+color:gray;
+}
+
+footer{
+margin-top:60px;
+background:rgb(39,17,0);
+color:white;
+text-align:center;
+padding:30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">
+<a href="index.html">GENCALLAR</a>
+</div>
+
+<a href="index.html" class="geri">← Alışverişe Devam Et</a>
+</header>
+
+<section class="baslik">
+<h1>Sepetim</h1>
+<p>Seçtiğin ürünler burada ✨</p>
+</section>
+
+<div class="sepet-container">
+
+<div class="sepet-urunler" id="urunler"></div>
+
+<div class="ozet">
+<h2>Sipariş Özeti</h2>
+<div class="toplam" id="toplam">0₺</div>
+
+<button class="satin-al" onclick="window.location.href='ödeme.html'">
+Ödemeye Geç
+</button>
+
+</div>
+
+</div>
+
+<footer>
+<h3>İletişim</h3>
+<p>Email: info@gencallar.com</p>
+<p>Tel: 0555 555 55 55</p>
+</footer>
+
+<script>
+
+let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+
+function renderSepet(){
+
+let urunlerDiv=document.getElementById("urunler");
+let toplamDiv=document.getElementById("toplam");
+
+urunlerDiv.innerHTML="";
+
+if(sepet.length===0){
+urunlerDiv.innerHTML='<div class="bos">Sepetin boş 🛒</div>';
+toplamDiv.innerText="0₺";
+return;
+}
+
+let toplam=0;
+
+sepet.forEach((urun,index)=>{
+
+toplam+=Number(urun.fiyat);
+
+urunlerDiv.innerHTML+=`
+<div class="urun">
+<div>
+<h3>${urun.isim}</h3>
+<p>${urun.fiyat}₺</p>
+</div>
+
+<button class="sil-btn" onclick="sil(${index})">
+Sil
+</button>
+</div>
+`;
+
+});
+
+toplamDiv.innerText=toplam+"₺";
+
+}
+
+function sil(index){
+
+sepet.splice(index,1);
+localStorage.setItem("sepet",JSON.stringify(sepet));
+renderSepet();
+
+}
+
+renderSepet();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,433 @@
+body{
+margin:0;
+font-family:'Helvetica', Arial, sans-serif;
+background:#f5f5f5;
+box-sizing:border-box;
+}
+
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+background:rgb(39,17,0);
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.logo a{
+color:white;
+font-size:28px;
+text-decoration:none;
+font-weight:bold;
+letter-spacing:2px;
+}
+
+.sag{
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+.uyelik a{
+color:white;
+margin-left:15px;
+text-decoration:none;
+font-size:14px;
+transition:.3s;
+}
+
+.uyelik a:hover{
+opacity:.7;
+}
+
+/* ARAMA */
+
+.arama input{
+width:200px;
+padding:8px;
+font-size:14px;
+border-radius:20px;
+border:none;
+outline:none;
+}
+
+/* MENÜ */
+
+.menu{
+text-align:center;
+margin:20px 0;
+}
+
+.menu a{
+margin:20px;
+text-decoration:none;
+font-size:18px;
+color:black;
+font-weight:bold;
+position:relative;
+}
+
+.menu a::after{
+content:"";
+width:0;
+height:2px;
+background:black;
+position:absolute;
+left:0;
+bottom:-5px;
+transition:0.3s;
+}
+
+.menu a:hover::after{
+width:100%;
+}
+
+/* SLIDER */
+
+.reklam{
+width:100%;
+overflow:hidden;
+}
+
+.slider{
+display:flex;
+animation:kaydir 5s infinite;
+}
+
+.slider img{
+width:100%;
+height:420px;
+object-fit:cover;
+}
+
+@keyframes kaydir{
+0%{transform:translateX(0);}
+33%{transform:translateX(-100%);}
+66%{transform:translateX(-100%);}
+100%{transform:translateX(0);}
+}
+
+/* KATEGORİ BANNER */
+
+.kategori-banner{
+position:relative;
+width:100%;
+margin-bottom:40px;
+}
+
+.kategori-banner img{
+width:100%;
+height:auto;
+}
+
+.banner-yazi{
+position:absolute;
+bottom:60px;
+left:80px;
+color:white;
+text-shadow:0 5px 15px rgba(0,0,0,.6);
+}
+
+.banner-yazi h1{
+font-size:42px;
+margin:0;
+}
+
+.banner-yazi p{
+font-size:18px;
+margin-top:10px;
+}
+
+/* FİLTRE */
+
+.filtre{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+margin-top:10px;
+}
+
+.filtre p{
+font-size:16px;
+}
+
+.sirala select{
+padding:6px 10px;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+/* ÜRÜNLER */
+
+.urunler{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:40px;
+margin:60px;
+justify-items:center;
+}
+
+/* ÜRÜN */
+
+.urun{
+background:white;
+padding:20px;
+text-align:center;
+border-radius:10px;
+width:100%;
+max-width:260px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+transition:0.3s;
+position:relative;
+}
+
+.urun:hover{
+transform:translateY(-10px);
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.urun img{
+display:block;
+width:100%;
+height:300px;
+object-fit:contain;
+background:white;
+}
+
+.urun h3{
+margin-top:10px;
+font-size:18px;
+}
+
+.urun p{
+font-weight:bold;
+}
+
+/* KALP */
+
+.kalp-btn{
+position:absolute;
+top:10px;
+right:10px;
+font-size:24px;
+cursor:pointer;
+background:transparent;
+border:none;
+padding:0;
+color:white;
+text-shadow:0 0 5px black;
+transition:transform 0.2s;
+z-index:10;
+}
+
+.kalp-btn:hover{
+transform:scale(1.3);
+}
+
+/* BUTTON */
+
+.urun button:not(.kalp-btn){
+background:rgb(39,17,0);
+color:white;
+border:none;
+padding:10px 15px;
+margin-top:10px;
+cursor:pointer;
+transition:0.3s;
+width:100%;
+}
+
+.urun button:not(.kalp-btn):hover{
+background:#8b4513;
+}
+
+/* FOOTER */
+
+footer{
+background:rgb(39,17,0);
+color:white;
+text-align:center;
+padding:30px;
+margin-top:40px;
+}
+
+/* KATEGORİ BAŞLIK */
+
+.kategori-baslik{
+text-align:center;
+padding:60px 20px 20px;
+}
+
+.kategori-baslik h1{
+font-size:36px;
+margin-bottom:10px;
+}
+
+.kategori-baslik p{
+color:gray;
+font-size:16px;
+}
+
+/* ÜST MENÜ */
+
+.ust-menu{
+display:flex;
+justify-content:center;
+gap:30px;
+padding:10px;
+background:white;
+border-bottom:1px solid #eee;
+font-size:14px;
+}
+
+.ust-menu a{
+text-decoration:none;
+color:#444;
+transition:0.3s;
+}
+
+.ust-menu a:hover{
+color:black;
+}
+
+/* SEPET */
+
+.sepet-btn{
+position:fixed;
+bottom:30px;
+right:30px;
+background:white;
+font-size:30px;
+width:75px;
+height:75px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+text-decoration:none;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+animation:sepetHareket 2s infinite;
+}
+
+.sepet-sayi{
+position:absolute;
+top:-8px;
+right:-8px;
+background:red;
+color:white;
+font-size:14px;
+width:25px;
+height:25px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+font-weight:bold;
+}
+
+@keyframes sepetHareket{
+0%{transform:translateY(0);}
+50%{transform:translateY(-8px);}
+100%{transform:translateY(0);}
+}
+
+/* MOBİL */
+
+@media(max-width:900px){
+
+.urunler{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:600px){
+
+.urunler{
+grid-template-columns:1fr;
+}
+
+.banner-yazi{
+left:20px;
+bottom:20px;
+}
+
+.banner-yazi h1{
+font-size:28px;
+}
+
+.filtre{
+padding:15px 20px;
+}
+
+}
+/* İNDİRİMLİ FİYAT */
+
+del{
+color:gray;
+font-size:15px;
+margin-right:8px;
+}
+
+.indirimli-fiyat{
+color:#8b0000;
+font-size:22px;
+font-weight:bold;
+}
+
+/* İNDİRİM ETİKETİ */
+
+.indirim-etiket{
+position:absolute;
+top:15px;
+left:15px;
+background:red;
+color:white;
+padding:5px 10px;
+font-size:13px;
+font-weight:bold;
+border-radius:20px;
+z-index:5;
+}
+
+/* YENİ SEZON */
+
+.yeni-etiket{
+position:absolute;
+top:50px;
+left:15px;
+background:black;
+color:white;
+padding:5px 10px;
+font-size:12px;
+border-radius:20px;
+z-index:5;
+}
+
+/* PUAN */
+
+.puan{
+margin-top:5px;
+font-size:15px;
+color:#f5a623;
+}
+
+.puan span{
+color:gray;
+font-size:13px;
+}
+
+/* ÜRÜN HOVER */
+
+.urun img{
+transition:0.4s;
+}
+
+.urun:hover img{
+transform:scale(1.03);
+}

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+<meta charset="UTF-8">
+<title>Gencallar</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* FAVORİ MESAJ */
+
+#favori-mesaj{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+background:black;
+color:white;
+padding:10px 20px;
+border-radius:8px;
+display:none;
+z-index:9999;
+}
+
+/* ÇEREZ */
+
+#cerez-banner{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:white;
+color:black;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+z-index:10000;
+box-shadow:0 -2px 10px rgba(0,0,0,0.1);
+}
+
+#cerez-banner p{
+margin:0;
+font-size:14px;
+flex:1 1 60%;
+min-width:250px;
+padding-right:15px;
+}
+
+.cerez-btns{
+display:flex;
+flex:1 1 35%;
+justify-content:flex-end;
+min-width:250px;
+}
+
+.cerez-btns button{
+margin-left:10px;
+padding:10px 15px;
+border-radius:5px;
+border:none;
+cursor:pointer;
+font-size:14px;
+flex:1;
+min-width:80px;
+text-align:center;
+background:black;
+color:white;
+transition:0.3s;
+}
+
+.cerez-btns button:hover{
+opacity:0.8;
+}
+
+/* İNDİRİM */
+
+del{
+color:gray;
+font-size:15px;
+margin-right:8px;
+}
+
+.indirimli-fiyat{
+color:#8b0000;
+font-size:22px;
+font-weight:bold;
+}
+
+.indirim-etiket{
+position:absolute;
+top:15px;
+left:15px;
+background:red;
+color:white;
+padding:5px 10px;
+font-size:13px;
+font-weight:bold;
+border-radius:20px;
+z-index:5;
+}
+
+.yeni-etiket{
+position:absolute;
+top:50px;
+left:15px;
+background:black;
+color:white;
+padding:5px 10px;
+font-size:12px;
+border-radius:20px;
+z-index:5;
+}
+
+.puan{
+margin-top:5px;
+font-size:15px;
+color:#f5a623;
+}
+
+.puan span{
+color:gray;
+font-size:13px;
+}
+
+/* ÜRÜNLER */
+
+.urunler{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+padding:30px;
+}
+
+.urun{
+width:280px;
+background:white;
+padding:15px;
+border-radius:12px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+position:relative;
+cursor:pointer;
+transition:0.3s;
+overflow:hidden;
+}
+
+.urun:hover{
+transform:translateY(-5px);
+}
+
+.urun img{
+width:100%;
+border-radius:10px;
+transition:0.4s;
+}
+
+.urun:hover img{
+transform:scale(1.03);
+}
+
+/* KALP */
+
+.kalp-btn{
+position:absolute;
+top:10px;
+right:10px;
+font-size:24px;
+cursor:pointer;
+background:transparent;
+border:none;
+padding:0;
+color:white;
+text-shadow:0 0 5px black;
+transition:transform 0.2s;
+z-index:10;
+}
+
+.kalp-btn:hover{
+transform:scale(1.3);
+}
+
+/* SEPET BUTONU */
+
+.urun button:not(.kalp-btn){
+background:rgb(39,17,0);
+color:white;
+border:none;
+padding:10px 15px;
+margin-top:10px;
+cursor:pointer;
+transition:0.3s;
+width:100%;
+border-radius:8px;
+font-size:15px;
+}
+
+.urun button:not(.kalp-btn):hover{
+background:#8b4513;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ÇEREZ -->
+
+<div id="cerez-banner">
+
+<p>
+Değerli Gencallar müşterimiz, mümkün olan en başarılı ve keyifli alışveriş deneyimini size sunmayı hedeflemekteyiz.
+</p>
+
+<div class="cerez-btns">
+<button id="cerez-kabul">Tümünü Kabul Et</button>
+<button id="cerez-reddet">Tümünü Reddet</button>
+<button id="cerez-ayar">Çerez Ayarları</button>
+</div>
+
+</div>
+
+<!-- FAVORİ MESAJ -->
+
+<div id="favori-mesaj"></div>
+
+<!-- HEADER -->
+
+<header>
+
+<div class="logo">
+<a href="index.html">GENCALLAR</a>
+</div>
+
+<div class="sag">
+
+<div class="arama">
+<input type="text" placeholder="Ürün ara...">
+</div>
+
+<div class="uyelik">
+<a href="girisyap.html">Giriş Yap</a>
+<a href="uyeol.html">Üye Ol</a>
+<a href="favoriler.html" style="margin-left:10px; color:white;">
+❤️ Favoriler
+</a>
+</div>
+
+</div>
+
+</header>
+
+<!-- MENÜ -->
+
+<nav class="menu">
+
+<a href="kadin.html">Kadın</a>
+<a href="erkek.html">Erkek</a>
+<a href="cocuk.html">Çocuk</a>
+<a href="aksesuar.html">Aksesuar</a>
+<a href="favoriler.html">Favoriler</a>
+
+</nav>
+
+<!-- SLIDER -->
+
+<section class="reklam">
+
+<div class="slider">
+
+<img src="ürün fotoğrafları/anasayfa.png">
+<img src="ürün fotoğrafları/anasayfa2.png">
+
+</div>
+
+</section>
+
+<!-- BAŞLIK -->
+
+<section class="kategori-baslik">
+
+<h1>İndirimli Ürünler</h1>
+
+<p>Kaçırılmayacak fırsatlar seni bekliyor ✨</p>
+
+</section>
+
+<!-- ÜRÜNLER -->
+
+<section class="urunler">
+
+<!-- ÜRÜN 1 -->
+
+<div class="urun"
+onclick="git('Erkek Tişört','399','erkek-tisort.webp')">
+
+<div class="indirim-etiket">-%35</div>
+
+<div class="yeni-etiket">Yeni Sezon</div>
+
+<img src="ürün fotoğrafları/erkek-tisort.webp">
+
+<button class="kalp-btn"
+onclick="event.stopPropagation(); favorilereToggle(this,'Erkek Tişört',399)">
+🤍
+</button>
+
+<h3>Erkek Tişört</h3>
+
+<div class="puan">
+⭐⭐⭐⭐⭐ <span>(4.9)</span>
+</div>
+
+<p>
+<del>599₺</del>
+<span class="indirimli-fiyat">399₺</span>
+</p>
+
+<button onclick="event.stopPropagation(); sepeteEkle('Erkek Tişört',399,this)">
+Sepete Ekle
+</button>
+
+</div>
+
+<!-- ÜRÜN 2 -->
+
+<div class="urun"
+onclick="git('Kadın Bluz','899','kadin-bluz.webp')">
+
+<div class="indirim-etiket">-%40</div>
+
+<div class="yeni-etiket">Trend</div>
+
+<img src="ürün fotoğrafları/kadin-bluz.webp">
+
+<button class="kalp-btn"
+onclick="event.stopPropagation(); favorilereToggle(this,'Kadın kadin-bluz',899)">
+🤍
+</button>
+
+<h3>Kadın Bluz</h3>
+
+<div class="puan">
+⭐⭐⭐⭐☆ <span>(4.7)</span>
+</div>
+
+<p>
+<del>1499₺</del>
+<span class="indirimli-fiyat">899₺</span>
+</p>
+
+<button onclick="event.stopPropagation(); sepeteEkle('Kadın Bluz',899,this)">
+Sepete Ekle
+</button>
+
+</div>
+
+<!-- ÜRÜN 3 -->
+
+<div class="urun"
+onclick="git('Çocuk Takım','1299','cocuk-takım2.webp')">
+
+<div class="indirim-etiket">-%25</div>
+
+<div class="yeni-etiket">Popüler</div>
+
+<img src="ürün fotoğrafları/cocuk-takım2.webp">
+
+<button class="kalp-btn"
+onclick="event.stopPropagation(); favorilereToggle(this,'Çocuk Takım',1299)">
+🤍
+</button>
+
+<h3>Çocuk Takım</h3>
+
+<div class="puan">
+⭐⭐⭐⭐⭐ <span>(5.0)</span>
+</div>
+
+<p>
+<del>1799₺</del>
+<span class="indirimli-fiyat">1299₺</span>
+</p>
+
+<button onclick="event.stopPropagation(); sepeteEkle('Çocuk Takım',1299,this)">
+Sepete Ekle
+</button>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<h3>İletişim</h3>
+
+<p>Email: info@gencallar.com</p>
+
+<p>Tel: 0555 555 55 55</p>
+
+</footer>
+
+<!-- SEPET -->
+
+<a href="sepet.html" class="sepet-btn">
+
+🛒
+
+<span class="sepet-sayi">0</span>
+
+</a>
+
+<script>
+
+/* DETAY SAYFASI */
+
+function git(urun,fiyat,img){
+
+window.location.href =
+"urun-detay.html?urun=" + encodeURIComponent(urun) +
+"&fiyat=" + fiyat +
+"&img=" + img;
+
+}
+
+/* SEPET */
+
+function sepeteEkle(urun,fiyat,button){
+
+let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+
+sepet.push({
+isim:urun,
+fiyat:fiyat
+});
+
+localStorage.setItem("sepet",JSON.stringify(sepet));
+
+document.querySelector(".sepet-sayi").innerText = sepet.length;
+
+button.innerText = "Eklendi ✓";
+
+button.style.background = "green";
+
+setTimeout(()=>{
+
+button.innerText = "Sepete Ekle";
+
+button.style.background = "";
+
+},1000);
+
+}
+
+/* FAVORİ */
+
+function favorilereToggle(btn,urun,fiyat){
+
+let favoriler = JSON.parse(localStorage.getItem("favoriler")) || [];
+
+let mesaj = document.getElementById("favori-mesaj");
+
+let index = favoriler.findIndex(item=>item.isim===urun);
+
+if(index===-1){
+
+favoriler.push({
+isim:urun,
+fiyat:fiyat
+});
+
+btn.innerText="❤️";
+
+mesaj.textContent="Favorilere eklendi!";
+
+}else{
+
+favoriler.splice(index,1);
+
+btn.innerText="🤍";
+
+mesaj.textContent="Favorilerden çıkarıldı!";
+
+}
+
+localStorage.setItem("favoriler",JSON.stringify(favoriler));
+
+mesaj.style.display="block";
+
+setTimeout(()=>{
+
+mesaj.style.display="none";
+
+},1500);
+
+}
+
+/* SAYFA YÜKLENDİĞİNDE */
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+
+document.querySelector(".sepet-sayi").innerText = sepet.length;
+
+let favoriler = JSON.parse(localStorage.getItem("favoriler")) || [];
+
+document.querySelectorAll(".kalp-btn").forEach(btn=>{
+
+let urunAdi = btn.parentElement.querySelector("h3").textContent;
+
+if(favoriler.some(u=>u.isim===urunAdi)){
+
+btn.textContent="❤️";
+
+}
+
+});
+
+});
+
+/* ÇEREZ */
+
+let cerezBanner = document.getElementById("cerez-banner");
+
+document.getElementById("cerez-kabul").onclick = function(){
+
+cerezBanner.style.display="none";
+
+}
+
+document.getElementById("cerez-reddet").onclick = function(){
+
+cerezBanner.style.display="none";
+
+}
+
+document.getElementById("cerez-ayar").onclick = function(){
+
+alert("Çerez ayarları sayfası");
+
+}
+
+</script>
+
+</body>
+</html>

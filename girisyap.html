@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Giriş Yap - Gencallar</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+.giris-container{
+  max-width:400px;
+  margin:80px auto;
+  padding:30px;
+  background:white;
+  border-radius:10px;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.giris-container h2{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.giris-container input{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+
+.giris-container button{
+  width:100%;
+  padding:12px;
+  background:black;
+  color:white;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.giris-container button:hover{
+  opacity:0.8;
+}
+
+.hata{
+  color:red;
+  text-align:center;
+  margin-bottom:10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER AYNI -->
+<header>
+  <div class="logo">
+    <a href="index.html">GENCALLAR</a>
+  </div>
+  <div class="sag">
+    <div class="arama">
+      <input type="text" placeholder="Ürün ara...">
+    </div>
+    <div class="uyelik">
+      <a href="girisyap.html">Giriş Yap</a>
+      <a href="uyeol.html">Üye Ol</a>
+      <a href="favoriler.html" style="margin-left:10px; color:white;">❤️ Favoriler</a>
+    </div>
+  </div>
+</header>
+
+<!-- FORM -->
+<div class="giris-container">
+  <h2>Giriş Yap</h2>
+
+  <div class="hata" id="hataMesaj"></div>
+
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="sifre" placeholder="Şifre">
+
+  <button onclick="girisYap()">Giriş Yap</button>
+</div>
+
+<script>
+function girisYap(){
+  let email = document.getElementById("email").value;
+  let sifre = document.getElementById("sifre").value;
+  let hata = document.getElementById("hataMesaj");
+
+  // Basit kontrol (gerçek sistem değil)
+  let kayitliKullanici = JSON.parse(localStorage.getItem("kullanici"));
+
+  if(!email || !sifre){
+    hata.innerText = "Lütfen tüm alanları doldurun";
+    return;
+  }
+
+  if(kayitliKullanici && 
+     kayitliKullanici.email === email && 
+     kayitliKullanici.sifre === sifre){
+
+    localStorage.setItem("girisYapildi", true);
+    alert("Giriş başarılı!");
+    window.location.href = "index.html";
+
+  }else{
+    hata.innerText = "Email veya şifre yanlış";
+  }
+}
+</script>
+
+</body>
+</html>

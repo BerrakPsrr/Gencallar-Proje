@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+<meta charset="UTF-8">
+<title>Aksesuar - Gencallar</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* Ürün ve resim düzeni */
+.urun {
+  display: inline-block;
+  margin: 15px;
+  vertical-align: top;
+  text-align: center;
+  position: relative;
+}
+
+.urun-resim {
+  position: relative;
+}
+
+.urun-resim img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+}
+
+/* Kalp resim üstünde */
+.urun-resim span {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  text-shadow: 0 0 5px black;
+  transition: transform 0.2s;
+}
+
+.urun-resim span:hover {
+  transform: scale(1.3);
+}
+
+/* Mesaj kutusu */
+#favori-mesaj {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: black;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: none;
+  z-index: 9999;
+}
+</style>
+</head>
+
+<body>
+
+<div id="favori-mesaj"></div>
+
+<header>
+<div class="logo"><a href="index.html">GENCALLAR</a></div>
+<div class="sag">
+  <div class="arama">
+    <input type="text" placeholder="Ürün ara...">
+  </div>
+  <div class="uyelik">
+    <a href="#">Giriş Yap</a>
+    <a href="#">Üye Ol</a>
+    <a href="favoriler.html" style="margin-left:10px; color:white;">❤️ Favoriler</a>
+  </div>
+</div>
+</header>
+
+<nav class="ust-menu">
+<a href="kadin.html">Kadın</a>
+<a href="erkek.html">Erkek</a>
+<a href="cocuk.html">Çocuk</a>
+<a href="aksesuar.html">Aksesuar</a>
+<a href="favoriler.html">Favoriler</a>
+</nav>
+
+<section class="kategori-banner">
+<img src="ürün fotoğrafları/sezonaksesuar.png">
+<div class="banner-yazi">
+<h1>Aksesuar Koleksiyonu</h1>
+<p>Tarzını tamamlayan detaylar</p>
+</div>
+</section>
+
+<section class="filtre">
+<div class="urun-sayisi">6 ürün bulundu</div>
+<div class="filtre-sag">
+<div class="filtre-btn">Filtrele</div>
+<div class="cizgi"></div>
+<div class="sirala">
+<select>
+<option>Sırala</option>
+<option>Fiyat Artan</option>
+<option>Fiyat Azalan</option>
+<option>En Yeni</option>
+</select>
+</div>
+</div>
+</section>
+
+<section class="urunler">
+
+<div class="urun">
+  <div class="urun-resim">
+    <img src="ürün fotoğrafları/saatt.jpg" alt="Saat">
+    <span onclick="favorilereToggle('Saat',799,this)">🤍</span>
+  </div>
+  <h3>Saat</h3>
+  <p>799₺</p>
+  <button onclick="sepeteEkle('Saat',799,this)">Sepete Ekle</button>
+</div>
+
+<div class="urun">
+  <div class="urun-resim">
+    <img src="ürün fotoğrafları/gözlük1.jpg"Gözlük">
+    <span onclick="favorilereToggle('Gözlük',299,this)">🤍</span>
+  </div>
+  <h3>Gözlük</h3>
+  <p>299₺</p>
+  <button onclick="sepeteEkle('Gözlük',299,this)">Sepete Ekle</button>
+</div>
+
+<div class="urun">
+  <div class="urun-resim">
+    <img src="ürün fotoğrafları/çanta.jpg" alt="Çanta">
+    <span onclick="favorilereToggle('Çanta',499,this)">🤍</span>
+  </div>
+  <h3>Çanta</h3>
+  <p>499₺</p>
+  <button onclick="sepeteEkle('Çanta',499,this)">Sepete Ekle</button>
+</div>
+
+<div class="urun">
+  <div class="urun-resim">
+    <img src="ürün fotoğrafları/bileklik.jpg" alt="Bileklik">
+    <span onclick="favorilereToggle('Bileklik',199,this)">🤍</span>
+  </div>
+  <h3>Bileklik</h3>
+  <p>199₺</p>
+  <button onclick="sepeteEkle('Bileklik',199,this)">Sepete Ekle</button>
+</div>
+
+<div class="urun">
+  <div class="urun-resim">
+    <img src="ürün fotoğrafları/şapka.webp" alt="Şapka">
+    <span onclick="favorilereToggle('Şapka',149,this)">🤍</span>
+  </div>
+  <h3>Şapka</h3>
+  <p>149₺</p>
+  <button onclick="sepeteEkle('Şapka',149,this)">Sepete Ekle</button>
+</div>
+
+<div class="urun">
+  <div class="urun-resim">
+    <img src="ürün fotoğrafları/cüzdan.webp" alt="Cüzdan">
+    <span onclick="favorilereToggle('Cüzdan',349,this)">🤍</span>
+  </div>
+  <h3>Cüzdan</h3>
+  <p>349₺</p>
+  <button onclick="sepeteEkle('Cüzdan',349,this)">Sepete Ekle</button>
+</div>
+
+</section>
+
+<footer>
+<h3>İletişim</h3>
+<p>Email: info@gencallar.com</p>
+<p>Tel: 0555 555 55 55</p>
+</footer>
+
+<a href="sepet.html" class="sepet-btn">🛒<span class="sepet-sayi">0</span></a>
+
+<script>
+// SEPET
+function sepeteEkle(urun, fiyat, button){
+  let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+  sepet.push({isim: urun, fiyat: fiyat});
+  localStorage.setItem("sepet", JSON.stringify(sepet));
+
+  let sepetSayi = document.querySelector(".sepet-sayi");
+  if(sepetSayi) sepetSayi.innerText = sepet.length;
+
+  button.innerText = "Eklendi ✓";
+  button.style.background = "green";
+
+  setTimeout(()=>{ 
+    button.innerText = "Sepete Ekle"; 
+    button.style.background = ""; 
+  },1000);
+}
+
+// FAVORİ
+function favorilereToggle(urun, fiyat, span){
+  let favoriler = JSON.parse(localStorage.getItem("favoriler")) || [];
+  let mesaj = document.getElementById("favori-mesaj");
+
+  let index = favoriler.findIndex(item => item.isim === urun);
+
+  if(index === -1){
+    favoriler.push({isim: urun, fiyat: fiyat});
+    span.textContent = "❤️";
+    mesaj.textContent = "Favorilere eklendi!";
+  } else {
+    favoriler.splice(index,1);
+    span.textContent = "🤍";
+    mesaj.textContent = "Favorilerden çıkarıldı!";
+  }
+
+  localStorage.setItem("favoriler", JSON.stringify(favoriler));
+
+  mesaj.style.display = "block";
+  setTimeout(()=>{ mesaj.style.display = "none"; },1500);
+}
+
+// SAYFA YÜKLENİNCE
+document.addEventListener("DOMContentLoaded", ()=>{
+  let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+  document.querySelector(".sepet-sayi").innerText = sepet.length;
+
+  let favoriler = JSON.parse(localStorage.getItem("favoriler")) || [];
+  document.querySelectorAll(".urun-resim span").forEach(span=>{
+    let urunAdi = span.parentElement.nextElementSibling.textContent;
+    if(favoriler.some(u => u.isim === urunAdi)) span.textContent = "❤️";
+  });
+});
+</script>
+
+</body>
+</html>

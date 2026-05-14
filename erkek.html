@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Erkek Ürünleri - Gencallar</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+#favori-mesaj {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: black;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: none;
+  z-index: 9999;
+}
+
+.urun{
+cursor:pointer;
+}
+
+.urun-resim span {
+  font-size: 24px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: white;
+  text-shadow: 0 0 5px black;
+  transition: transform 0.2s;
+}
+
+.urun-resim span:hover {
+  transform: scale(1.2);
+}
+
+/* küçük hover efekti */
+.urun:hover{
+transform:scale(1.02);
+transition:0.2s;
+}
+</style>
+</head>
+
+<body>
+
+<div id="favori-mesaj"></div>
+
+<header>
+<div class="logo"><a href="index.html">GENCALLAR</a></div>
+
+<div class="sag">
+<div class="arama">
+<input type="text" placeholder="Ürün ara...">
+</div>
+
+<div class="uyelik">
+<a href="girisyap.html">Giriş Yap</a>
+<a href="uyeol.html">Üye Ol</a>
+<a href="favoriler.html" style="margin-left:10px; color:white;">❤️ Favoriler</a>
+</div>
+</div>
+</header>
+
+<nav class="ust-menu">
+<a href="kadin.html">Kadın</a>
+<a href="erkek.html">Erkek</a>
+<a href="cocuk.html">Çocuk</a>
+<a href="aksesuar.html">Aksesuar</a>
+<a href="favoriler.html">Favoriler</a>
+</nav>
+
+<section class="kategori-banner">
+<img src="ürün fotoğrafları/sezonerkek.webp">
+<div class="banner-yazi">
+<h1>Erkek Koleksiyonu</h1>
+<p>Yeni sezon erkek ürünleri</p>
+</div>
+</section>
+
+<section class="filtre">
+<div class="urun-sayisi">6 ürün bulundu</div>
+
+<div class="filtre-sag">
+<div class="filtre-btn">Filtrele</div>
+
+<div class="cizgi"></div>
+
+<div class="sirala">
+<select>
+<option>Sırala</option>
+<option>Fiyat Artan</option>
+<option>Fiyat Azalan</option>
+<option>En Yeni</option>
+</select>
+</div>
+</div>
+</section>
+
+<section class="urunler">
+
+<!-- 1 -->
+<div class="urun" onclick="git('Erkek Tişört','399','t1.webp')">
+<div class="urun-resim" style="position:relative;">
+<img src="ürün fotoğrafları/t1.webp">
+<span onclick="event.stopPropagation(); favorilereToggle('Erkek Tişört',399,this)">🤍</span>
+</div>
+<h3>Erkek Tişört</h3>
+<p>399₺</p>
+<button onclick="event.stopPropagation(); sepeteEkle('Erkek Tişört',399,this)">Sepete Ekle</button>
+</div>
+
+<!-- 2 -->
+<div class="urun" onclick="git('Erkek Gömlek','899','gömlek-erkek.webp')">
+<div class="urun-resim" style="position:relative;">
+<img src="ürün fotoğrafları/gömlek-erkek.webp">
+<span onclick="event.stopPropagation(); favorilereToggle('Erkek Gömlek',899,this)">🤍</span>
+</div>
+<h3>Erkek Gömlek</h3>
+<p>899₺</p>
+<button onclick="event.stopPropagation(); sepeteEkle('Erkek Gömlek',899,this)">Sepete Ekle</button>
+</div>
+
+<!-- 3 -->
+<div class="urun" onclick="git('Erkek Pantolon','1299','pant1.webp')">
+<div class="urun-resim" style="position:relative;">
+<img src="ürün fotoğrafları/pant1.webp">
+<span onclick="event.stopPropagation(); favorilereToggle('Erkek Pantolon',1299,this)">🤍</span>
+</div>
+<h3>Erkek Pantolon</h3>
+<p>1299₺</p>
+<button onclick="event.stopPropagation(); sepeteEkle('Erkek Pantolon',1299,this)">Sepete Ekle</button>
+</div>
+
+<!-- 4 -->
+<div class="urun" onclick="git('Erkek Ceket','1499','c1.webp')">
+<div class="urun-resim" style="position:relative;">
+<img src="ürün fotoğrafları/c1.webp">
+<span onclick="event.stopPropagation(); favorilereToggle('Erkek Ceket',1499,this)">🤍</span>
+</div>
+<h3>Erkek Ceket</h3>
+<p>1499₺</p>
+<button onclick="event.stopPropagation(); sepeteEkle('Erkek Ceket',1499,this)">Sepete Ekle</button>
+</div>
+
+<!-- 5 -->
+<div class="urun" onclick="git('Erkek Eşofman','699','esofman.webp')">
+<div class="urun-resim" style="position:relative;">
+<img src="ürün fotoğrafları/esofman.webp">
+<span onclick="event.stopPropagation(); favorilereToggle('Erkek Eşofman',699,this)">🤍</span>
+</div>
+<h3>Erkek Eşofman</h3>
+<p>699₺</p>
+<button onclick="event.stopPropagation(); sepeteEkle('Erkek Eşofman',699,this)">Sepete Ekle</button>
+</div>
+
+<!-- 6 -->
+<div class="urun" onclick="git('Erkek Sweatshirt','299','t2.webp')">
+<div class="urun-resim" style="position:relative;">
+<img src="ürün fotoğrafları/t2.webp">
+<span onclick="event.stopPropagation(); favorilereToggle('Erkek Sweatshirt',299,this)">🤍</span>
+</div>
+<h3>Erkek Sweatshirt</h3>
+<p>299₺</p>
+<button onclick="event.stopPropagation(); sepeteEkle('Erkek Sweatshirt',299,this)">Sepete Ekle</button>
+</div>
+
+</section>
+
+<footer>
+<h3>İletişim</h3>
+<p>Email: info@gencallar.com</p>
+<p>Tel: 0555 555 55 55</p>
+</footer>
+
+<a href="sepet.html" class="sepet-btn">
+🛒
+<span class="sepet-sayi">0</span>
+</a>
+
+<script>
+
+function git(urun,fiyat,img){
+window.location.href =
+"urun-detay.html?urun=" + encodeURIComponent(urun) +
+"&fiyat=" + fiyat +
+"&img=" + img;
+}
+
+function sepeteEkle(urun, fiyat, button){
+let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+sepet.push({isim:urun,fiyat:fiyat});
+localStorage.setItem("sepet",JSON.stringify(sepet));
+
+document.querySelector(".sepet-sayi").innerText = sepet.length;
+
+button.innerText="Eklendi ✓";
+button.style.background="green";
+
+setTimeout(()=>{
+button.innerText="Sepete Ekle";
+button.style.background="";
+},1000);
+}
+
+function favorilereToggle(urun,fiyat,span){
+
+let favoriler = JSON.parse(localStorage.getItem("favoriler")) || [];
+let mesaj = document.getElementById("favori-mesaj");
+
+let index = favoriler.findIndex(item=>item.isim===urun);
+
+if(index===-1){
+favoriler.push({isim:urun,fiyat:fiyat});
+span.textContent="❤️";
+mesaj.textContent="Favorilere eklendi!";
+}else{
+favoriler.splice(index,1);
+span.textContent="🤍";
+mesaj.textContent="Favorilerden çıkarıldı!";
+}
+
+localStorage.setItem("favoriler",JSON.stringify(favoriler));
+
+mesaj.style.display="block";
+setTimeout(()=>mesaj.style.display="none",1500);
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+document.querySelector(".sepet-sayi").innerText = sepet.length;
+
+let favoriler = JSON.parse(localStorage.getItem("favoriler")) || [];
+
+document.querySelectorAll(".urun-resim span").forEach(span=>{
+let urunAdi = span.parentElement.nextElementSibling.textContent;
+
+if(favoriler.some(u=>u.isim===urunAdi)){
+span.textContent="❤️";
+}
+});
+});
+
+</script>
+
+</body>
+</html>

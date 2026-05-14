@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Ödeme - Gencallar</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f8f8f8;
+}
+
+/* HEADER */
+
+header{
+background:rgb(39,17,0);
+color:white;
+padding:20px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo a{
+color:white;
+text-decoration:none;
+font-size:32px;
+font-weight:bold;
+letter-spacing:2px;
+}
+
+.geri{
+color:white;
+text-decoration:none;
+}
+
+/* BAŞLIK */
+
+.baslik{
+text-align:center;
+padding:40px 20px;
+}
+
+.baslik h1{
+margin:0;
+font-size:35px;
+color:rgb(39,17,0);
+}
+
+.baslik p{
+color:gray;
+}
+
+/* CONTAINER */
+
+.odeme-container{
+max-width:1100px;
+margin:auto;
+padding:20px;
+display:flex;
+gap:30px;
+flex-wrap:wrap;
+}
+
+/* FORM */
+
+.form{
+flex:2;
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.form h2{
+color:rgb(39,17,0);
+margin-top:0;
+}
+
+input,textarea{
+width:100%;
+padding:14px;
+margin:10px 0;
+border:1px solid #ddd;
+border-radius:8px;
+font-size:15px;
+box-sizing:border-box;
+}
+
+textarea{
+resize:none;
+height:100px;
+}
+
+/* ÖZET */
+
+.ozet{
+flex:1;
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.toplam{
+font-size:28px;
+font-weight:bold;
+color:#8b0000;
+margin:20px 0;
+}
+
+.odeme-btn{
+width:100%;
+padding:15px;
+background:rgb(39,17,0);
+color:white;
+border:none;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+}
+
+.odeme-btn:hover{
+background:#8b4513;
+}
+
+/* FOOTER */
+
+footer{
+margin-top:60px;
+background:rgb(39,17,0);
+color:white;
+text-align:center;
+padding:30px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<a href="index.html">GENCALLAR</a>
+</div>
+
+<a href="sepet.html" class="geri">← Sepete Dön</a>
+
+</header>
+
+<section class="baslik">
+<h1>Ödeme</h1>
+<p>Siparişini tamamla ✨</p>
+</section>
+
+<div class="odeme-container">
+
+<div class="form">
+
+<h2>Teslimat Bilgileri</h2>
+
+<input type="text" placeholder="Ad Soyad">
+<input type="text" placeholder="Telefon">
+<textarea placeholder="Adres"></textarea>
+
+<h2>Kart Bilgileri</h2>
+
+<input type="text" placeholder="Kart Numarası">
+<input type="text" placeholder="Kart Üzerindeki İsim">
+
+<div style="display:flex;gap:15px;">
+<input type="text" placeholder="AA/YY">
+<input type="text" placeholder="CVV">
+</div>
+
+</div>
+
+<div class="ozet">
+
+<h2>Sipariş Özeti</h2>
+
+<div class="toplam" id="toplam">0₺</div>
+
+<button class="odeme-btn" onclick="odemeTamamla()">
+Ödemeyi Tamamla
+</button>
+
+</div>
+
+</div>
+
+<footer>
+<h3>İletişim</h3>
+<p>Email: info@gencallar.com</p>
+<p>Tel: 0555 555 55 55</p>
+</footer>
+
+<script>
+
+let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+
+let toplam = 0;
+
+sepet.forEach(urun=>{
+toplam += Number(urun.fiyat);
+});
+
+document.getElementById("toplam").innerText = toplam + "₺";
+
+function odemeTamamla(){
+
+localStorage.removeItem("sepet");
+
+window.location.href="index.html";
+
+}
+
+</script>
+
+</body>
+</html>

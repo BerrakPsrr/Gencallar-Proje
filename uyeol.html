@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Üye Ol - Gencallar</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.giris-container{
+max-width:400px;
+margin:80px auto;
+padding:30px;
+background:white;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.giris-container h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+.giris-container input{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border:1px solid #ccc;
+border-radius:5px;
+box-sizing:border-box;
+}
+
+.giris-container button{
+width:100%;
+padding:12px;
+background:black;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.giris-container button:hover{
+opacity:.8;
+}
+
+.hata{
+color:red;
+text-align:center;
+margin-bottom:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER AYNI -->
+
+<header>
+
+<div class="logo">
+<a href="index.html">GENCALLAR</a>
+</div>
+
+<div class="sag">
+
+<div class="arama">
+<input type="text" placeholder="Ürün ara...">
+</div>
+
+<div class="uyelik">
+<a href="girisyap.html">Giriş Yap</a>
+<a href="uyeol.html">Üye Ol</a>
+<a href="favoriler.html" style="margin-left:10px; color:white;">
+❤️ Favoriler
+</a>
+</div>
+
+</div>
+
+</header>
+
+<!-- FORM -->
+
+<div class="giris-container">
+
+<h2>Üye Ol</h2>
+
+<div class="hata" id="hataMesaj"></div>
+
+<input type="text" id="ad" placeholder="Ad Soyad">
+<input type="email" id="email" placeholder="Email">
+<input type="password" id="sifre" placeholder="Şifre">
+
+<button onclick="uyeOl()">Kayıt Ol</button>
+
+</div>
+
+<script>
+
+function uyeOl(){
+
+let ad=document.getElementById("ad").value;
+let email=document.getElementById("email").value;
+let sifre=document.getElementById("sifre").value;
+
+let hata=document.getElementById("hataMesaj");
+
+if(!ad || !email || !sifre){
+
+hata.innerText="Lütfen tüm alanları doldurun";
+return;
+
+}
+
+localStorage.setItem("kullanici",JSON.stringify({
+ad:ad,
+email:email,
+sifre:sifre
+}));
+
+window.location.href="girisyap.html";
+
+}
+
+</script>
+
+</body>
+</html>

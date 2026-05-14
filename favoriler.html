@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+<meta charset="UTF-8">
+<title>Favoriler - Gencallar</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* Favoriler sayfası özel stilleri */
+.favori{
+  max-width:800px;
+  margin:40px auto;
+  background:white;
+  border-radius:15px;
+  padding:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.favori-urun{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 0;
+  border-bottom:1px solid #eee;
+}
+
+.favori-urun:last-child{
+  border-bottom:none;
+}
+
+.favori-bilgi h3{
+  margin:0;
+  font-size:16px;
+}
+
+.favori-bilgi p{
+  margin:5px 0 0;
+  color:#777;
+}
+
+.favori-urun button{
+  background:none;
+  border:none;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.sepet-btn-fav{
+  background:black;
+  color:white;
+  padding:10px 15px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">
+<a href="index.html">GENCALLAR</a>
+</div>
+</header>
+
+<h1 style="text-align:center; margin-top:40px;">Favorilerim</h1>
+
+<section class="favori" id="favori-listesi">
+<!-- Favori ürünler buraya gelecek -->
+</section>
+
+<script>
+// Favoriler localStorage'dan çekilecek
+let favoriler = JSON.parse(localStorage.getItem("favoriler")) || [];
+let favoriAlan = document.getElementById("favori-listesi");
+
+function favorileriGoster(){
+  favoriAlan.innerHTML = "";
+  if(favoriler.length === 0){
+    favoriAlan.innerHTML = "<p style='text-align:center;'>Favori ürününüz yok</p>";
+    return;
+  }
+
+  favoriler.forEach((urun,index)=>{
+    favoriAlan.innerHTML += `
+    <div class="favori-urun">
+      <div class="favori-bilgi">
+        <h3>${urun.isim}</h3>
+        <p>${urun.fiyat}₺</p>
+      </div>
+      <div>
+        <button onclick="sepeteEkleFavori(${index})" class="sepet-btn-fav">Sepete Ekle</button>
+        <button onclick="urunSil(${index})" style="color:red;">Sil</button>
+      </div>
+    </div>
+    `;
+  });
+}
+
+// Sepete ekle
+function sepeteEkleFavori(index){
+  let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+  sepet.push(favoriler[index]);
+  localStorage.setItem("sepet", JSON.stringify(sepet));
+  alert("Ürün sepete eklendi 🎉");
+}
+
+// Favori sil
+function urunSil(index){
+  favoriler.splice(index,1);
+  localStorage.setItem("favoriler", JSON.stringify(favoriler));
+  favorileriGoster();
+}
+
+favorileriGoster();
+</script>
+
+</body>
+</html>
