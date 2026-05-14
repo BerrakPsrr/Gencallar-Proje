@@ -70,7 +70,7 @@ let img = url.get("img");
 
 document.getElementById("urunAdi").innerText = urun;
 document.getElementById("fiyat").innerText = fiyat + "₺";
-document.getElementById("resim").src = "ürün fotoğrafları/" + img;
+document.getElementById("resim").src = + img;
 
 function sepeteEkle(){
 let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
